@@ -62,3 +62,8 @@
     java.lang.Object writeReplace();
     java.lang.Object readResolve();
 }
+
+# Annotazioni solo-compile riferite da Google Tink (via androidx.security:security-crypto):
+# assenti a runtime per design, R8 non deve considerarle un errore
+-dontwarn com.google.errorprone.annotations.**
+-dontwarn javax.annotation.**
