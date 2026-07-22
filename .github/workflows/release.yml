@@ -1,0 +1,53 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write # per creare la Release e allegare l'APK
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle (with cache)
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Run tests (desktop suite)
+        run: ./gradlew :shared:desktopTest
+
+      - name: Decode keystore from secrets
+        run: echo "${{ secrets.INTONO_KEYSTORE_BASE64 }}" | base64 -d > "$RUNNER_TEMP/intono-release.jks"
+
+      - name: Build signed release APK
+        env:
+          INTONO_KEYSTORE_PATH: ${{ runner.temp }}/intono-release.jks
+          INTONO_KEYSTORE_PASSWORD: ${{ secrets.INTONO_KEYSTORE_PASSWORD }}
+          INTONO_KEY_ALIAS: ${{ secrets.INTONO_KEY_ALIAS }}
+          INTONO_KEY_PASSWORD: ${{ secrets.INTONO_KEY_PASSWORD }}
+        run: ./gradlew :app:assembleRelease
+
+      - name: Rename APK with tag
+        run: cp app/build/outputs/apk/release/app-release.apk "InTono-${GITHUB_REF_NAME}.apk"
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: intono-release-apk
+          path: InTono-*.apk
+
+      - name: Attach APK to GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" "InTono-${GITHUB_REF_NAME}.apk" --title "InTono $GITHUB_REF_NAME" --generate-notes
