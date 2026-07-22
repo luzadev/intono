@@ -22,9 +22,9 @@ iosApp/build/
 video/node_modules/
 video/out/
 
-# Score library (256MB of .mxl, not source code — the curated bundled set
-# lives in shared/src/commonMain/composeResources/files/scores/)
-scores/
+# Score library at the repo root (256MB of .mxl, not source code — the curated
+# bundled set lives in shared/src/commonMain/composeResources/files/scores/)
+/scores/
 
 # Binary release artifacts
 *.apk
