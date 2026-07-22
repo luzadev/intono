@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">InTono</string>
+    <string name="app_subtitle">Intonazione e pratica per musicisti</string>
+
+    <!-- Home sections -->
+    <string name="section_tools">Strumenti</string>
+    <string name="section_practice">Pratica</string>
+    <string name="section_challenge">Sfida</string>
+    <string name="section_progress">Progressi</string>
+
+    <!-- Home cards -->
+    <string name="tuner_title">Controllo Intonazione</string>
+    <string name="tuner_desc">Verifica in tempo reale se stai suonando la nota corretta</string>
+    <string name="metronome_title">Metronomo</string>
+    <string name="metronome_desc">Tempo regolabile con accenti e tap tempo</string>
+    <string name="reference_title">Nota di Riferimento</string>
+    <string name="reference_desc">Genera qualsiasi nota per accordare o esercitarsi</string>
+    <string name="practice_title">Modalita Pratica</string>
+    <string name="practice_desc">Sequenze di note con guida visiva e avanzamento automatico</string>
+    <string name="exercises_title">Esercizi</string>
+    <string name="exercises_desc">Esercizi guidati con difficolta progressiva</string>
+    <string name="scales_title">Scale e Arpeggi</string>
+    <string name="scales_desc">Genera scale e arpeggi in qualsiasi tonalita</string>
+    <string name="scores_title">Spartiti</string>
+    <string name="scores_desc">Sfoglia spartiti MusicXML e pratica</string>
+    <string name="ear_training_title">Ear Training</string>
+    <string name="ear_training_desc">Riconosci note e intervalli ad orecchio</string>
+    <string name="challenge_title">Modalita Sfida</string>
+    <string name="challenge_desc">Suona piu note possibili nel tempo limite!</string>
+    <string name="leaderboard_title">Classifica</string>
+    <string name="leaderboard_desc">I tuoi migliori punteggi nelle sfide</string>
+    <string name="stats_title">Statistiche</string>
+    <string name="stats_desc">Grafici di precisione, velocita e progressi</string>
+    <string name="goals_title">Obiettivi Giornalieri</string>
+    <string name="goals_desc">Imposta obiettivi e mantieni la serie</string>
+    <string name="history_title">Cronologia</string>
+    <string name="history_desc">Rivedi le sessioni di pratica passate</string>
+    <string name="guide_title">Guida</string>
+    <string name="guide_desc">Come usare l\'app e suggerimenti</string>
+
+    <!-- Navigation -->
+    <string name="back">Indietro</string>
+
+    <!-- Common -->
+    <string name="octave">Ottava</string>
+    <string name="octave_n">Ottava %1$s</string>
+    <string name="start">Inizia</string>
+    <string name="finish">Fine</string>
+    <string name="retry">Riprova</string>
+    <string name="cancel">Annulla</string>
+    <string name="save">Salva</string>
+    <string name="error">Errore</string>
+    <string name="play_note">Suona:</string>
+    <string name="detected">Rilevato:</string>
+    <string name="notes">Note</string>
+    <string name="instrument">Strumento</string>
+    <string name="duration">Durata</string>
+    <string name="score">Punteggio</string>
+    <string name="combo">Combo</string>
+    <string name="points">punti</string>
+    <string name="partial">Parziale</string>
+    <string name="n_notes">%1$d note</string>
+    <string name="note_n_of_total">Nota %1$d di %2$d</string>
+    <string name="select_note">Seleziona nota</string>
+    <string name="direction">Direzione</string>
+
+    <!-- Tuner -->
+    <string name="tuner_silence">Silenzio</string>
+
+    <!-- Metronome -->
+    <string name="bpm">BPM</string>
+    <string name="time_signature">Tempo</string>
+    <string name="tap_tempo">Tap Tempo</string>
+
+    <!-- Reference Note -->
+    <string name="la_440">LA 440 Hz</string>
+    <string name="octave_freq">Ottava %1$d  •  %2$s Hz</string>
+
+    <!-- Practice -->
+    <string name="practice_choose">Scegli come inserire le note</string>
+    <string name="manual_input_title">Inserimento Manuale</string>
+    <string name="manual_input_desc">Seleziona le note una per una usando la griglia</string>
+    <string name="import_musicxml_title">Importa MusicXML</string>
+    <string name="import_musicxml_desc">Carica uno spartito da MuseScore, Finale o Sibelius</string>
+    <string name="scan_title">Scansiona Spartito</string>
+    <string name="scan_desc">Scatta una foto allo spartito e riconosci le note con AI</string>
+    <string name="view_note">Nota</string>
+    <string name="view_context">Contesto</string>
+    <string name="view_score">Spartito</string>
+    <string name="view_light">Chiaro</string>
+    <string name="hide_note_name">Nascondi</string>
+    <string name="completed">Completato!</string>
+    <string name="all_notes_correct">Tutte le note suonate correttamente</string>
+    <string name="avg_deviation">Deviazione media</string>
+    <string name="perfect_notes">Note perfette</string>
+    <string name="first_attempt">Primo tentativo</string>
+    <string name="repeat">Ripeti</string>
+
+    <!-- Manual Input -->
+    <string name="note_input_title">Inserimento Note</string>
+    <string name="selected_notes">Note selezionate (%1$d)</string>
+    <string name="undo_last">Annulla Ultima</string>
+    <string name="clear_all">Cancella Tutto</string>
+    <string name="start_practice_n">Inizia Pratica (%1$d note)</string>
+    <string name="manual_sequence_name">Sequenza Manuale</string>
+
+    <!-- Exercises -->
+    <string name="level_n">Livello %1$d</string>
+
+    <!-- Scales -->
+    <string name="tab_scales">Scale</string>
+    <string name="tab_arpeggios">Arpeggi</string>
+    <string name="root_note">Nota fondamentale</string>
+    <string name="scale_type">Tipo di scala</string>
+    <string name="arpeggio_type">Tipo di arpeggio</string>
+    <string name="start_practice">Pratica</string>
+
+    <!-- Scores -->
+    <string name="folder_app">Cartella app</string>
+    <string name="folder_named">Cartella: %1$s</string>
+    <string name="change_folder">Cambia cartella</string>
+    <string name="change">Cambia</string>
+    <string name="no_scores_found">Nessuno spartito trovato.</string>
+    <string name="folder">Cartella</string>
+    <string name="score_file">Spartito</string>
+
+    <!-- Ear Training -->
+    <string name="difficulty">Difficolta</string>
+    <string name="question_n">Domanda %1$d/%2$d</string>
+    <string name="correct_count">%1$d corrette</string>
+    <string name="play_sound">Riproduci</string>
+    <string name="listening">Ascolta...</string>
+    <string name="press_to_listen">Premi per ascoltare</string>
+    <string name="session_completed">Sessione Completata!</string>
+    <string name="correct_answers">risposte corrette</string>
+    <string name="result">Risultato</string>
+
+    <!-- Challenge -->
+    <string name="challenge_subtitle">Suona piu note possibili nel tempo limite!</string>
+    <string name="challenge_completed">Sfida Completata!</string>
+    <string name="notes_played">Note suonate</string>
+    <string name="max_combo">Combo massima</string>
+    <string name="time">Tempo</string>
+    <string name="start_challenge">Inizia Sfida!</string>
+    <string name="challenge_random">Sfida Random</string>
+    <string name="source_exercises">Esercizi</string>
+    <string name="source_scales">Scale</string>
+    <string name="source_random">Random</string>
+    <string name="sequence">Sequenza</string>
+    <string name="time_limit">Tempo limite</string>
+
+    <!-- Leaderboard -->
+    <string name="no_results">Nessun risultato ancora. Gioca una sfida!</string>
+
+    <!-- Stats -->
+    <string name="summary">Riepilogo</string>
+    <string name="sessions">Sessioni</string>
+    <string name="sessions_completed">Completate</string>
+    <string name="practice_time">Tempo pratica</string>
+    <string name="best_accuracy">Miglior precisione</string>
+    <string name="accuracy_cents">Precisione (cents)</string>
+    <string name="cents">cents</string>
+    <string name="first_attempt_pct">Primo tentativo (%)</string>
+    <string name="reaction_time_ms">Tempo reazione (ms)</string>
+    <string name="ms">ms</string>
+    <string name="pct">%</string>
+    <string name="no_stats_yet">Completa qualche sessione di pratica per vedere le statistiche!</string>
+
+    <!-- Goals -->
+    <string name="consecutive_day_one">giorno consecutivo</string>
+    <string name="consecutive_days">giorni consecutivi</string>
+    <string name="start_streak">Inizia la tua serie!</string>
+    <string name="of_target">di %1$dm</string>
+    <string name="goal_reached">Obiettivo raggiunto!</string>
+    <string name="daily_goal">Obiettivo giornaliero</string>
+    <string name="last_30_days">Ultimi 30 giorni</string>
+    <string name="no_recent_activity">Nessuna attivita recente</string>
+
+    <!-- History -->
+    <string name="no_sessions">Nessuna sessione salvata.\nCompleta un\'attività per vederla qui.</string>
+    <string name="history_type_practice">Pratica</string>
+    <string name="history_type_ear_training">Ear Training</string>
+    <string name="history_type_challenge">Sfida</string>
+    <string name="history_ear_note">Note</string>
+    <string name="history_ear_interval">Intervalli</string>
+    <string name="history_score">Punteggio</string>
+    <string name="history_combo">combo</string>
+    <string name="history_correct">corrette</string>
+
+    <!-- Scan -->
+    <string name="analyzing">Analisi in corso...</string>
+    <string name="analyzing_desc">Riconoscimento delle note dallo spartito</string>
+    <string name="notes_detected">%1$d note rilevate</string>
+    <string name="tap_to_remove">Tocca una nota per rimuoverla</string>
+    <string name="take_again">Scatta di nuovo</string>
+    <string name="change_api_key">Cambia API Key</string>
+    <string name="api_key">API Key</string>
+    <string name="enter_anthropic_key">Inserisci la tua API key Anthropic</string>
+    <string name="enter_openai_key">Inserisci la tua API key OpenAI</string>
+    <string name="get_anthropic_key">Ottieni la key su console.anthropic.com</string>
+    <string name="get_openai_key">Ottieni la key su platform.openai.com</string>
+
+    <!-- Guide -->
+    <string name="guide_section_tips">Suggerimenti</string>
+    <string name="guide_tuner_desc">Rileva in tempo reale la nota che stai suonando tramite il microfono. Mostra il nome della nota, la deviazione in cents e un indicatore visivo verde (intonato) o rosso (stonato). Ideale per strumenti a corda, a fiato o voce: verifica se stai suonando la nota giusta.</string>
+    <string name="guide_metronome_desc">Metronomo digitale con BPM regolabile da 30 a 240, tempi disponibili (2/4, 3/4, 4/4, 6/8), indicatori visivi dei battiti e funzione Tap Tempo. Premi il pulsante microfono per attivare il tuner integrato e verificare l\'intonazione mentre suoni a tempo.</string>
+    <string name="guide_reference_desc">Genera una nota di riferimento per accordare o esercitarsi a orecchio. Pulsante rapido LA 440 Hz, griglia di 12 note cromatiche e ottava selezionabile da 2 a 7.</string>
+    <string name="guide_practice_desc">Il cuore dell\'app. Carica una sequenza di note (manuale, scansione foto o MusicXML) e suonale una per una. L\'app rileva la nota dal microfono e avanza automaticamente. Visualizza il pentagramma in modalita Nota, Contesto, Spartito o Chiaro. Usa \"Nascondi\" per esercitarti a leggere dal pentagramma. Metronomo integrato per suonare a tempo.</string>
+    <string name="guide_exercises_desc">Esercizi pronti con difficolta progressiva: Livello 1 (note base Do-Sol), Livello 2 (scale complete), Livello 3 (scale con alterazioni e melodie), Livello 4 (arpeggi e salti).</string>
+    <string name="guide_scales_desc">Genera scale e arpeggi in qualsiasi tonalita. Scale: Maggiore, Minore, Armonica, Melodica, Pentatonica, Cromatica. Arpeggi: Maggiore, Minore, Diminuito, Aumentato, Settima. Scegli nota fondamentale, ottava, tipo e direzione.</string>
+    <string name="guide_scores_desc">Sfoglia la libreria di file MusicXML e pratica direttamente dai brani importati.</string>
+    <string name="guide_ear_training_desc">Allena l\'orecchio musicale: Riconosci Nota (indovina la nota ascoltata) e Riconosci Intervallo (identifica l\'intervallo tra due note). Tre livelli di difficolta con 10 domande per sessione.</string>
+    <string name="guide_challenge_desc">Metti alla prova velocita e precisione: scegli sorgente e tempo limite (30s, 1min, 2min) e suona il maggior numero di note corrette. Ogni nota e\' mostrata sul pentagramma. Sistema di punteggio con bonus precisione, velocita e moltiplicatore combo.</string>
+    <string name="guide_leaderboard_desc">I tuoi 20 migliori punteggi nelle sfide, con punteggio, note suonate, combo massima e data.</string>
+    <string name="guide_stats_desc">Panoramica dei tuoi progressi: sessioni totali, tempo di pratica, miglior precisione. Grafici giornalieri di precisione, primo tentativo e tempo di reazione.</string>
+    <string name="guide_goals_desc">Imposta un obiettivo (5, 10, 15 o 30 minuti al giorno), segui il progresso circolare, mantieni la serie consecutiva e visualizza il calendario degli ultimi 30 giorni. Il tempo viene conteggiato da tutte le attivita: pratica, sfide e ear training.</string>
+    <string name="guide_history_desc">Rivedi tutte le sessioni passate in un\'unica lista cronologica: pratica, ear training e sfide. Ogni tipo ha un badge colorato per distinguerlo. Tocca una sessione di pratica per rieseguirla.</string>
+    <string name="guide_tip_quiet">Ambiente silenzioso: l\'app funziona meglio con poco rumore di fondo.</string>
+    <string name="guide_tip_distance">Distanza dal microfono: tieni il dispositivo a 30-50 cm dallo strumento.</string>
+    <string name="guide_tip_daily">Pratica quotidiana: anche 10 minuti al giorno fanno la differenza.</string>
+    <string name="guide_tip_scales">Inizia dalle scale: padroneggiare le scale e\' la base per suonare qualsiasi brano.</string>
+    <string name="guide_tip_ear">Ear training regolare: anche 5 minuti al giorno migliorano l\'orecchio musicale.</string>
+    <string name="guide_section_support">Supporto</string>
+    <string name="guide_support_desc">Hai bisogno di aiuto, vuoi segnalare un problema o suggerire un miglioramento? Scrivici!</string>
+    <string name="guide_support_button">Contattaci via email</string>
+    <string name="guide_support_email">info@djluza.com</string>
+
+    <!-- Info -->
+    <string name="guide_section_info">Informazioni</string>
+    <string name="info_version">Versione %1$s</string>
+    <string name="info_developer">Sviluppato da LuZa</string>
+    <string name="info_website">djluza.com</string>
+    <string name="info_privacy_policy">Privacy Policy</string>
+    <string name="info_privacy_url">https://djluza.com/intono/privacy</string>
+</resources>

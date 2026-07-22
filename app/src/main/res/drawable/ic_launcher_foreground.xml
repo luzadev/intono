@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Subtle glow behind note -->
+    <path
+        android:fillColor="#33FFD700"
+        android:pathData="M54,54 m-22,0 a22,22 0,1 1,44 0 a22,22 0,1 1,-44 0" />
+
+    <!-- Decorative ring -->
+    <path
+        android:strokeColor="#22FFD700"
+        android:strokeWidth="0.5"
+        android:fillColor="#00000000"
+        android:pathData="M54,54 m-28,0 a28,28 0,1 1,56 0 a28,28 0,1 1,-56 0" />
+
+    <!-- Eighth note - gold -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M52,34 L52,68 C51.5,67.2 50.5,66.6 49,66.4 C45.5,65.8 42,67.5 41.5,70.2 C41,72.9 43.5,75.2 47,75.8 C50.5,76.4 53.5,74.8 54,72.2 L54,72 L54,46 L66,42 L66,38 Z" />
+
+    <!-- Flag -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M54,34 C58,36 62,40 60,46 L54,42 Z" />
+</vector>

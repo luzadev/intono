@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">InTono</string>
+    <string name="app_subtitle">Pitch check and practice for musicians</string>
+
+    <!-- Home sections -->
+    <string name="section_tools">Tools</string>
+    <string name="section_practice">Practice</string>
+    <string name="section_challenge">Challenge</string>
+    <string name="section_progress">Progress</string>
+
+    <!-- Home cards -->
+    <string name="tuner_title">Pitch Check</string>
+    <string name="tuner_desc">Check in real time if you\'re playing the correct note</string>
+    <string name="metronome_title">Metronome</string>
+    <string name="metronome_desc">Adjustable tempo with accents and tap tempo</string>
+    <string name="reference_title">Reference Note</string>
+    <string name="reference_desc">Generate any note for tuning or ear training</string>
+    <string name="practice_title">Practice Mode</string>
+    <string name="practice_desc">Note sequences with visual guidance and automatic progression</string>
+    <string name="exercises_title">Exercises</string>
+    <string name="exercises_desc">Guided exercises with progressive difficulty</string>
+    <string name="scales_title">Scales &amp; Arpeggios</string>
+    <string name="scales_desc">Generate scales and arpeggios in any key</string>
+    <string name="scores_title">Scores</string>
+    <string name="scores_desc">Browse MusicXML scores and practice</string>
+    <string name="ear_training_title">Ear Training</string>
+    <string name="ear_training_desc">Recognize notes and intervals by ear</string>
+    <string name="challenge_title">Challenge Mode</string>
+    <string name="challenge_desc">Play as many correct notes as you can before time runs out!</string>
+    <string name="leaderboard_title">Leaderboard</string>
+    <string name="leaderboard_desc">Your best challenge scores</string>
+    <string name="stats_title">Statistics</string>
+    <string name="stats_desc">Charts for accuracy, speed and progress</string>
+    <string name="goals_title">Daily Goals</string>
+    <string name="goals_desc">Set goals and keep your streak going</string>
+    <string name="history_title">History</string>
+    <string name="history_desc">Review past practice sessions</string>
+    <string name="guide_title">Guide</string>
+    <string name="guide_desc">How to use the app and tips</string>
+
+    <!-- Navigation -->
+    <string name="back">Back</string>
+
+    <!-- Common -->
+    <string name="octave">Octave</string>
+    <string name="octave_n">Octave %1$s</string>
+    <string name="start">Start</string>
+    <string name="finish">Finish</string>
+    <string name="retry">Retry</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="error">Error</string>
+    <string name="play_note">Play:</string>
+    <string name="detected">Detected:</string>
+    <string name="notes">Notes</string>
+    <string name="instrument">Instrument</string>
+    <string name="duration">Duration</string>
+    <string name="score">Score</string>
+    <string name="combo">Combo</string>
+    <string name="points">points</string>
+    <string name="partial">Partial</string>
+    <string name="n_notes">%1$d notes</string>
+    <string name="note_n_of_total">Note %1$d of %2$d</string>
+    <string name="select_note">Select note</string>
+    <string name="direction">Direction</string>
+
+    <!-- Tuner -->
+    <string name="tuner_silence">Silence</string>
+
+    <!-- Metronome -->
+    <string name="bpm">BPM</string>
+    <string name="time_signature">Time</string>
+    <string name="tap_tempo">Tap Tempo</string>
+
+    <!-- Reference Note -->
+    <string name="la_440">A 440 Hz</string>
+    <string name="octave_freq">Octave %1$d  •  %2$s Hz</string>
+
+    <!-- Practice -->
+    <string name="practice_choose">Choose how to enter notes</string>
+    <string name="manual_input_title">Manual Input</string>
+    <string name="manual_input_desc">Select notes one by one using the grid</string>
+    <string name="import_musicxml_title">Import MusicXML</string>
+    <string name="import_musicxml_desc">Load a score from MuseScore, Finale or Sibelius</string>
+    <string name="scan_title">Scan Score</string>
+    <string name="scan_desc">Take a photo of the score and recognize notes with AI</string>
+    <string name="view_note">Note</string>
+    <string name="view_context">Context</string>
+    <string name="view_score">Score</string>
+    <string name="view_light">Light</string>
+    <string name="hide_note_name">Hide</string>
+    <string name="completed">Completed!</string>
+    <string name="all_notes_correct">All notes played correctly</string>
+    <string name="avg_deviation">Average deviation</string>
+    <string name="perfect_notes">Perfect notes</string>
+    <string name="first_attempt">First attempt</string>
+    <string name="repeat">Repeat</string>
+
+    <!-- Manual Input -->
+    <string name="note_input_title">Note Input</string>
+    <string name="selected_notes">Selected notes (%1$d)</string>
+    <string name="undo_last">Undo Last</string>
+    <string name="clear_all">Clear All</string>
+    <string name="start_practice_n">Start Practice (%1$d notes)</string>
+    <string name="manual_sequence_name">Manual Sequence</string>
+
+    <!-- Exercises -->
+    <string name="level_n">Level %1$d</string>
+
+    <!-- Scales -->
+    <string name="tab_scales">Scales</string>
+    <string name="tab_arpeggios">Arpeggios</string>
+    <string name="root_note">Root note</string>
+    <string name="scale_type">Scale type</string>
+    <string name="arpeggio_type">Arpeggio type</string>
+    <string name="start_practice">Practice</string>
+
+    <!-- Scores -->
+    <string name="folder_app">App folder</string>
+    <string name="folder_named">Folder: %1$s</string>
+    <string name="change_folder">Change folder</string>
+    <string name="change">Change</string>
+    <string name="no_scores_found">No scores found.</string>
+    <string name="folder">Folder</string>
+    <string name="score_file">Score</string>
+
+    <!-- Ear Training -->
+    <string name="difficulty">Difficulty</string>
+    <string name="question_n">Question %1$d/%2$d</string>
+    <string name="correct_count">%1$d correct</string>
+    <string name="play_sound">Play</string>
+    <string name="listening">Listening...</string>
+    <string name="press_to_listen">Press to listen</string>
+    <string name="session_completed">Session Completed!</string>
+    <string name="correct_answers">correct answers</string>
+    <string name="result">Result</string>
+
+    <!-- Challenge -->
+    <string name="challenge_subtitle">Play as many correct notes before time runs out!</string>
+    <string name="challenge_completed">Challenge Completed!</string>
+    <string name="notes_played">Notes played</string>
+    <string name="max_combo">Max combo</string>
+    <string name="time">Time</string>
+    <string name="start_challenge">Start Challenge!</string>
+    <string name="challenge_random">Random Challenge</string>
+    <string name="source_exercises">Exercises</string>
+    <string name="source_scales">Scales</string>
+    <string name="source_random">Random</string>
+    <string name="sequence">Sequence</string>
+    <string name="time_limit">Time limit</string>
+
+    <!-- Leaderboard -->
+    <string name="no_results">No results yet. Play a challenge!</string>
+
+    <!-- Stats -->
+    <string name="summary">Summary</string>
+    <string name="sessions">Sessions</string>
+    <string name="sessions_completed">Completed</string>
+    <string name="practice_time">Practice time</string>
+    <string name="best_accuracy">Best accuracy</string>
+    <string name="accuracy_cents">Accuracy (cents)</string>
+    <string name="cents">cents</string>
+    <string name="first_attempt_pct">First attempt (%)</string>
+    <string name="reaction_time_ms">Reaction time (ms)</string>
+    <string name="ms">ms</string>
+    <string name="pct">%</string>
+    <string name="no_stats_yet">Complete some practice sessions to see statistics!</string>
+
+    <!-- Goals -->
+    <string name="consecutive_day_one">consecutive day</string>
+    <string name="consecutive_days">consecutive days</string>
+    <string name="start_streak">Start your streak!</string>
+    <string name="of_target">of %1$dm</string>
+    <string name="goal_reached">Goal reached!</string>
+    <string name="daily_goal">Daily goal</string>
+    <string name="last_30_days">Last 30 days</string>
+    <string name="no_recent_activity">No recent activity</string>
+
+    <!-- History -->
+    <string name="no_sessions">No sessions saved.\nComplete an activity to see it here.</string>
+    <string name="history_type_practice">Practice</string>
+    <string name="history_type_ear_training">Ear Training</string>
+    <string name="history_type_challenge">Challenge</string>
+    <string name="history_ear_note">Notes</string>
+    <string name="history_ear_interval">Intervals</string>
+    <string name="history_score">Score</string>
+    <string name="history_combo">combo</string>
+    <string name="history_correct">correct</string>
+
+    <!-- Scan -->
+    <string name="analyzing">Analyzing...</string>
+    <string name="analyzing_desc">Recognizing notes from the score</string>
+    <string name="notes_detected">%1$d notes detected</string>
+    <string name="tap_to_remove">Tap a note to remove it</string>
+    <string name="take_again">Take again</string>
+    <string name="change_api_key">Change API Key</string>
+    <string name="api_key">API Key</string>
+    <string name="enter_anthropic_key">Enter your Anthropic API key</string>
+    <string name="enter_openai_key">Enter your OpenAI API key</string>
+    <string name="get_anthropic_key">Get your key at console.anthropic.com</string>
+    <string name="get_openai_key">Get your key at platform.openai.com</string>
+
+    <!-- Guide -->
+    <string name="guide_section_tips">Tips</string>
+    <string name="guide_tuner_desc">Detects the note you\'re playing in real time via the microphone. Shows the note name, cent deviation, and a visual indicator: green (in tune) or red (out of tune). Ideal for string, wind instruments or voice: check if you\'re playing the right note.</string>
+    <string name="guide_metronome_desc">Digital metronome with BPM adjustable from 30 to 240, available time signatures (2/4, 3/4, 4/4, 6/8), visual beat indicators and Tap Tempo. Press the microphone button to activate the built-in tuner and check your intonation while playing in time.</string>
+    <string name="guide_reference_desc">Generate a reference note for tuning or ear training. Quick A 440 Hz button, grid of 12 chromatic notes, and selectable octave from 2 to 7.</string>
+    <string name="guide_practice_desc">The heart of the app. Load a note sequence (manual, photo scan, or MusicXML) and play them one by one. The app detects the note from the microphone and advances automatically. View the staff in Note, Context, Score, or Light mode. Use \"Hide\" to practice reading from the staff. Built-in metronome to play in time.</string>
+    <string name="guide_exercises_desc">Ready-made exercises with progressive difficulty: Level 1 (basic notes C-G), Level 2 (complete scales), Level 3 (scales with accidentals and melodies), Level 4 (arpeggios and leaps).</string>
+    <string name="guide_scales_desc">Generate scales and arpeggios in any key. Scales: Major, Minor, Harmonic, Melodic, Pentatonic, Chromatic. Arpeggios: Major, Minor, Diminished, Augmented, Seventh. Choose root note, octave, type and direction.</string>
+    <string name="guide_scores_desc">Browse your MusicXML file library and practice directly from imported pieces.</string>
+    <string name="guide_ear_training_desc">Train your musical ear: Recognize Note (guess the note you hear) and Recognize Interval (identify the interval between two notes). Three difficulty levels with 10 questions per session.</string>
+    <string name="guide_challenge_desc">Test your speed and accuracy: choose source and time limit (30s, 1min, 2min) and play as many correct notes as possible. Each note is shown on the staff. Scoring system with accuracy bonus, speed bonus and combo multiplier.</string>
+    <string name="guide_leaderboard_desc">Your top 20 challenge scores, with score, notes played, max combo and date.</string>
+    <string name="guide_stats_desc">Overview of your progress: total sessions, practice time, best accuracy. Daily charts for accuracy, first attempt and reaction time.</string>
+    <string name="guide_goals_desc">Set a goal (5, 10, 15 or 30 minutes per day), follow the circular progress, maintain your streak and view the calendar of the last 30 days. Time is tracked from all activities: practice, challenges and ear training.</string>
+    <string name="guide_history_desc">Review all past sessions in a single chronological list: practice, ear training and challenges. Each type has a colored badge for easy identification. Tap a practice session to replay it.</string>
+    <string name="guide_tip_quiet">Quiet environment: the app works best with little background noise.</string>
+    <string name="guide_tip_distance">Microphone distance: keep the device 30-50 cm from your instrument.</string>
+    <string name="guide_tip_daily">Daily practice: even 10 minutes a day makes a difference.</string>
+    <string name="guide_tip_scales">Start with scales: mastering scales is the foundation for playing any piece.</string>
+    <string name="guide_tip_ear">Regular ear training: even 5 minutes a day greatly improves your musical ear.</string>
+    <string name="guide_section_support">Support</string>
+    <string name="guide_support_desc">Need help, want to report a bug, or suggest an improvement? Write to us!</string>
+    <string name="guide_support_button">Contact us via email</string>
+    <string name="guide_support_email">info@djluza.com</string>
+
+    <!-- Info -->
+    <string name="guide_section_info">About</string>
+    <string name="info_version">Version %1$s</string>
+    <string name="info_developer">Developed by LuZa</string>
+    <string name="info_website">djluza.com</string>
+    <string name="info_privacy_policy">Privacy Policy</string>
+    <string name="info_privacy_url">https://djluza.com/intono/privacy</string>
+</resources>

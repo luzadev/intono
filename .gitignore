@@ -1,0 +1,31 @@
+# Gradle / Kotlin
+.gradle/
+build/
+**/build/
+.kotlin/
+local.properties
+
+# IDE / OS
+.idea/
+*.iml
+.DS_Store
+
+# Xcode project is generated from iosApp/project.yml via xcodegen
+iosApp/iosApp.xcodeproj/
+iosApp/build/
+
+# Session/tooling artifacts
+.superpowers/
+.claude/settings.local.json
+
+# Promo video: sources are versioned, deps and renders are not
+video/node_modules/
+video/out/
+
+# Score library (256MB of .mxl, not source code — the curated bundled set
+# lives in shared/src/commonMain/composeResources/files/scores/)
+scores/
+
+# Binary release artifacts
+*.apk
+*.apk.idsig

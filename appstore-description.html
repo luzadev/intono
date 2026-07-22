@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InTono — App Store Description</title>
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --accent: #e94560;
+            --accent-light: #fce4ec;
+            --bg: #fafafa;
+            --card-bg: #ffffff;
+            --text: #2c2c2c;
+            --text-light: #666666;
+            --border: #e0e0e0;
+            --green: #2e7d32;
+            --blue: #1565c0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        .page {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 32px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .header .app-icon-placeholder {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent), #ff6f61);
+            border-radius: 18px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 36px;
+            font-weight: 700;
+            box-shadow: 0 4px 16px rgba(233, 69, 96, 0.3);
+        }
+
+        .header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+
+        .header .subtitle {
+            font-size: 16px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .header .developer {
+            font-size: 14px;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .header .developer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .header .developer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Language Section */
+        .lang-section {
+            margin-bottom: 56px;
+        }
+
+        .lang-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 24px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .lang-flag {
+            font-size: 28px;
+        }
+
+        /* Metadata Card */
+        .meta-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .meta-card-header {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .meta-card-header .char-count {
+            font-size: 11px;
+            font-weight: 400;
+            opacity: 0.7;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .meta-card-body {
+            padding: 20px;
+        }
+
+        .meta-card-body.description {
+            white-space: pre-wrap;
+            font-size: 14.5px;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .meta-card-body.promo {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .meta-card-body.keywords {
+            font-size: 14px;
+            color: var(--text-light);
+            font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+            word-break: break-all;
+        }
+
+        /* Divider */
+        .section-divider {
+            border: none;
+            border-top: 2px dashed var(--border);
+            margin: 48px 0;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 2px solid var(--border);
+            color: var(--text-light);
+            font-size: 13px;
+        }
+
+        .footer .brand {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .footer .contact {
+            margin-top: 8px;
+        }
+
+        .footer .date {
+            margin-top: 12px;
+            font-size: 11px;
+            color: #aaa;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                font-size: 12px;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .page {
+                max-width: 100%;
+                padding: 20px;
+                margin: 0;
+            }
+
+            .header {
+                margin-bottom: 30px;
+                padding-bottom: 20px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .header .app-icon-placeholder {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+                border-radius: 14px;
+            }
+
+            .lang-section {
+                margin-bottom: 36px;
+            }
+
+            .lang-title {
+                font-size: 20px;
+                margin-bottom: 16px;
+            }
+
+            .meta-card {
+                break-inside: avoid;
+                margin-bottom: 14px;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+
+            .meta-card-header {
+                padding: 8px 16px;
+                font-size: 11px;
+            }
+
+            .meta-card-body {
+                padding: 14px 16px;
+            }
+
+            .meta-card-body.description {
+                font-size: 12.5px;
+                line-height: 1.6;
+            }
+
+            .meta-card-body.promo {
+                font-size: 13px;
+            }
+
+            .meta-card-body.keywords {
+                font-size: 11px;
+            }
+
+            .section-divider {
+                margin: 32px 0;
+            }
+
+            .footer {
+                margin-top: 32px;
+                padding-top: 16px;
+            }
+
+            .lang-section:last-of-type {
+                break-before: page;
+            }
+
+            a {
+                color: var(--accent) !important;
+                text-decoration: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- Header -->
+        <div class="header">
+            <div class="app-icon-placeholder">&#9835;</div>
+            <h1>InTono</h1>
+            <div class="subtitle">Accordatore, pratica e allenamento musicale</div>
+            <div class="developer">
+                by <strong>LuZa</strong> &mdash;
+                <a href="https://djluza.com">djluza.com</a> &middot;
+                <a href="mailto:info@djluza.com">info@djluza.com</a>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- ITALIAN VERSION -->
+        <!-- ============================================================ -->
+        <div class="lang-section">
+            <div class="lang-title">
+                <span class="lang-flag">&#127470;&#127481;</span>
+                Italiano &mdash; App Store Description
+            </div>
+
+            <!-- Promotional Text -->
+            <div class="meta-card">
+                <div class="meta-card-header">
+                    Testo Promozionale
+                    <span class="char-count">max 170 caratteri</span>
+                </div>
+                <div class="meta-card-body promo">Accorda, pratica e migliora con InTono: accordatore in tempo reale, metronomo, ear training, sfide e statistiche. Per ogni strumento e ogni livello.</div>
+            </div>
+
+            <!-- Description -->
+            <div class="meta-card">
+                <div class="meta-card-header">
+                    Descrizione
+                    <span class="char-count">max 4000 caratteri</span>
+                </div>
+                <div class="meta-card-body description">InTono e' il tuo compagno di pratica musicale: tutto cio' che serve per accordare, esercitarti e migliorare, in un'unica app. Pensata per violino, viola, violoncello, chitarra, pianoforte e voce, a qualsiasi livello.
+
+ACCORDATORE IN TEMPO REALE
+Rileva la nota che stai suonando tramite il microfono. Visualizza il nome della nota, la deviazione in cents e un indicatore colorato verde/rosso per capire al volo se sei intonato.
+
+METRONOMO
+BPM regolabile da 30 a 240, tempi 2/4, 3/4, 4/4 e 6/8, indicatori visivi dei battiti e Tap Tempo per impostare il ritmo al volo.
+
+NOTA DI RIFERIMENTO
+Genera qualsiasi nota cromatica dall'ottava 2 alla 7. Pulsante rapido LA 440 Hz per l'accordatura standard.
+
+PRATICA GUIDATA
+Carica una sequenza di note — inserimento manuale, scansione foto dello spartito con IA, oppure importazione MusicXML — e suonale una per una. L'app rileva ogni nota dal microfono e avanza automaticamente quando e' corretta. Quattro viste del pentagramma: Nota, Contesto, Spartito e Chiaro.
+
+ESERCIZI PRONTI
+4 livelli di difficolta' progressiva, dalle note base a scale con alterazioni, arpeggi e salti.
+
+SCALE E ARPEGGI
+Genera scale e arpeggi in qualsiasi tonalita':
+- Scale: Maggiore, Minore, Armonica, Melodica, Pentatonica, Cromatica
+- Arpeggi: Maggiore, Minore, Diminuito, Aumentato, Settima
+Scegli nota, ottava e direzione, poi esercitati con il riconoscimento automatico.
+
+SPARTITI
+Sfoglia e pratica direttamente da file MusicXML importati nella libreria.
+
+EAR TRAINING
+Allena l'orecchio musicale: riconosci note e intervalli con 3 livelli di difficolta'. Ogni sessione ha 10 domande con feedback immediato.
+
+MODALITA' SFIDA
+Metti alla prova velocita' e precisione con sfide a tempo: 30 secondi, 1 o 2 minuti. Guadagna punti con bonus precisione, bonus velocita' e moltiplicatore combo.
+
+CLASSIFICA E STATISTICHE
+Consulta i tuoi 20 migliori punteggi. Segui i tuoi progressi con grafici di precisione, velocita' e primo tentativo.
+
+OBIETTIVI GIORNALIERI
+Imposta il tuo obiettivo: 5, 10, 15 o 30 minuti al giorno. Tieni traccia della serie consecutiva e visualizza gli ultimi 30 giorni sul calendario.
+
+CRONOLOGIA
+Rivedi ogni sessione passata con le relative statistiche e rieseguila in qualsiasi momento.
+
+SCANSIONA SPARTITO CON IA
+Scatta una foto al tuo spartito e lascia che l'intelligenza artificiale riconosca le note. Inizia subito a praticare.
+
+PRIVACY AL PRIMO POSTO
+Tutto l'audio viene elaborato localmente sul dispositivo. Nessun tracciamento, nessuna pubblicita', nessun dato raccolto.
+
+Scarica InTono e inizia a migliorare oggi.</div>
+            </div>
+
+            <!-- Keywords -->
+            <div class="meta-card">
+                <div class="meta-card-header">
+                    Parole Chiave
+                    <span class="char-count">max 100 caratteri</span>
+                </div>
+                <div class="meta-card-body keywords">accordatore,intonazione,metronomo,ear training,scale,arpeggi,violino,chitarra,voce,pratica,musicale</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- ============================================================ -->
+        <!-- ENGLISH VERSION -->
+        <!-- ============================================================ -->
+        <div class="lang-section">
+            <div class="lang-title">
+                <span class="lang-flag">&#127468;&#127463;</span>
+                English &mdash; App Store Description
+            </div>
+
+            <!-- Promotional Text -->
+            <div class="meta-card">
+                <div class="meta-card-header">
+                    Promotional Text
+                    <span class="char-count">max 170 characters</span>
+                </div>
+                <div class="meta-card-body promo">Tune, practice and improve with InTono: real-time tuner, metronome, ear training, challenges and stats. For every instrument and every level.</div>
+            </div>
+
+            <!-- Description -->
+            <div class="meta-card">
+                <div class="meta-card-header">
+                    Description
+                    <span class="char-count">max 4000 characters</span>
+                </div>
+                <div class="meta-card-body description">InTono is your music practice companion: everything you need to tune, practice and improve, all in one app. Designed for violin, viola, cello, guitar, piano and voice, at any level.
+
+REAL-TIME TUNER
+Detects the note you are playing through the microphone. Shows the note name, cents deviation and a green/red colour indicator so you can instantly see if you are in tune.
+
+METRONOME
+Adjustable BPM from 30 to 240, time signatures 2/4, 3/4, 4/4 and 6/8, visual beat indicators and Tap Tempo to set the pace on the fly.
+
+REFERENCE NOTE
+Generate any chromatic note from octave 2 to 7. Quick A440 button for standard tuning.
+
+GUIDED PRACTICE
+Load a note sequence — manual entry, photo scan of sheet music with AI, or MusicXML import — and play them one by one. The app detects each note from the microphone and advances automatically when correct. Four staff views: Note, Context, Score and Light.
+
+READY-MADE EXERCISES
+4 progressive difficulty levels, from basic notes to scales with accidentals, arpeggios and leaps.
+
+SCALES AND ARPEGGIOS
+Generate scales and arpeggios in any key:
+- Scales: Major, Minor, Harmonic, Melodic, Pentatonic, Chromatic
+- Arpeggios: Major, Minor, Diminished, Augmented, Seventh
+Choose root note, octave and direction, then practise with automatic recognition.
+
+SHEET MUSIC
+Browse and practise directly from MusicXML files imported into the library.
+
+EAR TRAINING
+Train your musical ear: recognise notes and intervals across 3 difficulty levels. Each session has 10 questions with instant feedback.
+
+CHALLENGE MODE
+Test your speed and accuracy with timed challenges: 30 seconds, 1 or 2 minutes. Earn points with accuracy bonus, speed bonus and combo multiplier.
+
+LEADERBOARD AND STATISTICS
+View your top 20 scores. Track your progress with charts for accuracy, speed and first-attempt rate.
+
+DAILY GOALS
+Set your target: 5, 10, 15 or 30 minutes per day. Keep track of your streak and view the last 30 days on the calendar.
+
+HISTORY
+Review every past session with its statistics and replay it at any time.
+
+AI SHEET MUSIC SCANNER
+Take a photo of your sheet music and let artificial intelligence recognise the notes. Start practising right away.
+
+PRIVACY FIRST
+All audio is processed locally on your device. No tracking, no ads, no data collected.
+
+Download InTono and start improving today.</div>
+            </div>
+
+            <!-- Keywords -->
+            <div class="meta-card">
+                <div class="meta-card-header">
+                    Keywords
+                    <span class="char-count">max 100 characters</span>
+                </div>
+                <div class="meta-card-body keywords">tuner,pitch,metronome,ear training,scales,arpeggios,violin,guitar,voice,practice,music,intonation</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="brand">LuZa</div>
+            <div><a href="https://djluza.com">djluza.com</a></div>
+            <div class="contact"><a href="mailto:info@djluza.com">info@djluza.com</a></div>
+            <div class="date">Prepared February 2026</div>
+        </div>
+
+    </div>
+</body>
+</html>
