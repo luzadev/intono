@@ -1,6 +1,7 @@
 package com.notemusicali.ui.components
 
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -13,6 +14,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.rememberTextMeasurer
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.notemusicali.music.MusicalNote
 
@@ -29,6 +31,8 @@ fun StaffFullView(
     lightTheme: Boolean = false,
     beats: Int = 4,
     beatType: Int = 4,
+    // Altezza massima visibile: oltre, lo spartito scorre da solo seguendo la nota corrente
+    maxVisibleHeight: Dp = 340.dp,
 ) {
     if (notes.isEmpty()) return
 
@@ -65,12 +69,18 @@ fun StaffFullView(
             scrollState.animateScrollTo(targetY)
         }
 
-        Canvas(
+        val viewportHeightDp = if (totalHeightDp < maxVisibleHeight) totalHeightDp else maxVisibleHeight
+        Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .verticalScroll(scrollState)
-                .height(totalHeightDp),
+                .height(viewportHeightDp)
+                .verticalScroll(scrollState),
         ) {
+            Canvas(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(totalHeightDp),
+            ) {
             val lineColor = if (lightTheme) Color.Black else Color.White.copy(alpha = 0.4f)
             val dimColor = if (lightTheme) Color.Black else Color.White.copy(alpha = 0.35f)
             val playedColor = if (lightTheme) Color.Black.copy(alpha = 0.35f) else Color.White.copy(alpha = 0.2f)
@@ -193,6 +203,7 @@ fun StaffFullView(
                     drawBarline(size.width - 8f, staffBottom, lineSpacing, lineColor)
                 }
             }
+        }
         }
     }
 }

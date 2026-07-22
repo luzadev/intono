@@ -21,6 +21,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
@@ -231,7 +233,13 @@ fun ManualInputScreen(
             )
 
             if (notes.isNotEmpty()) {
+                val notesRowState = rememberLazyListState()
+                LaunchedEffect(notes.size) {
+                    // Segui sempre l'ultima nota inserita
+                    notesRowState.animateScrollToItem(notes.size - 1)
+                }
                 LazyRow(
+                    state = notesRowState,
                     horizontalArrangement = Arrangement.spacedBy(6.dp),
                     modifier = Modifier
                         .fillMaxWidth()
