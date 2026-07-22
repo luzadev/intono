@@ -12,7 +12,7 @@
 
     <!-- Home cards -->
     <string name="tuner_title">Pitch Check</string>
-    <string name="tuner_desc">Check in real time if you\'re playing the correct note</string>
+    <string name="tuner_desc">Check in real time if you're playing the correct note</string>
     <string name="metronome_title">Metronome</string>
     <string name="metronome_desc">Adjustable tempo with accents and tap tempo</string>
     <string name="reference_title">Reference Note</string>
@@ -204,10 +204,10 @@
 
     <!-- Guide -->
     <string name="guide_section_tips">Tips</string>
-    <string name="guide_tuner_desc">Detects the note you\'re playing in real time via the microphone. Shows the note name, cent deviation, and a visual indicator: green (in tune) or red (out of tune). Ideal for string, wind instruments or voice: check if you\'re playing the right note.</string>
+    <string name="guide_tuner_desc">Detects the note you're playing in real time via the microphone. Shows the note name, cent deviation, and a visual indicator: green (in tune) or red (out of tune). Ideal for string, wind instruments or voice: check if you're playing the right note.</string>
     <string name="guide_metronome_desc">Digital metronome with BPM adjustable from 30 to 240, available time signatures (2/4, 3/4, 4/4, 6/8), visual beat indicators and Tap Tempo. Press the microphone button to activate the built-in tuner and check your intonation while playing in time.</string>
     <string name="guide_reference_desc">Generate a reference note for tuning or ear training. Quick A 440 Hz button, grid of 12 chromatic notes, and selectable octave from 2 to 7.</string>
-    <string name="guide_practice_desc">The heart of the app. Load a note sequence (manual, photo scan, or MusicXML) and play them one by one. The app detects the note from the microphone and advances automatically. View the staff in Note, Context, Score, or Light mode. Use \"Hide\" to practice reading from the staff. Built-in metronome to play in time.</string>
+    <string name="guide_practice_desc">The heart of the app. Load a note sequence (manual, photo scan, or MusicXML) and play them one by one. The app detects the note from the microphone and advances automatically. View the staff in Note, Context, Score, or Light mode. Use "Hide" to practice reading from the staff. Built-in metronome to play in time.</string>
     <string name="guide_exercises_desc">Ready-made exercises with progressive difficulty: Level 1 (basic notes C-G), Level 2 (complete scales), Level 3 (scales with accidentals and melodies), Level 4 (arpeggios and leaps).</string>
     <string name="guide_scales_desc">Generate scales and arpeggios in any key. Scales: Major, Minor, Harmonic, Melodic, Pentatonic, Chromatic. Arpeggios: Major, Minor, Diminished, Augmented, Seventh. Choose root note, octave, type and direction.</string>
     <string name="guide_scores_desc">Browse your MusicXML file library and practice directly from imported pieces.</string>

@@ -21,6 +21,8 @@ data class PracticeSession(
     val noteResults: List<NoteResult>,
     val noteMidiNumbers: List<Int>,
     val completed: Boolean = true,
+    val beats: Int = 4,
+    val beatType: Int = 4,
 ) {
     val averageCents: Float
         get() = if (noteResults.isEmpty()) 0f

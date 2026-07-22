@@ -175,9 +175,11 @@ internal fun DrawScope.drawTimeSignature(
     )
     val top = textMeasurer.measure(beats.toString(), style)
     val bottom = textMeasurer.measure(beatType.toString(), style)
-    drawText(top, topLeft = Offset(x, staffBottom - 4f * lineSpacing + (2f * lineSpacing - top.size.height) / 2f))
-    drawText(bottom, topLeft = Offset(x, staffBottom - 2f * lineSpacing + (2f * lineSpacing - bottom.size.height) / 2f))
-    return maxOf(top.size.width, bottom.size.width).toFloat()
+    // Cifre centrate su un asse comune (conta con metri a larghezza mista, es. 12/8)
+    val width = maxOf(top.size.width, bottom.size.width).toFloat()
+    drawText(top, topLeft = Offset(x + (width - top.size.width) / 2f, staffBottom - 4f * lineSpacing + (2f * lineSpacing - top.size.height) / 2f))
+    drawText(bottom, topLeft = Offset(x + (width - bottom.size.width) / 2f, staffBottom - 2f * lineSpacing + (2f * lineSpacing - bottom.size.height) / 2f))
+    return width
 }
 
 /** Chiave a piena opacità. Ritorna la larghezza occupata. */

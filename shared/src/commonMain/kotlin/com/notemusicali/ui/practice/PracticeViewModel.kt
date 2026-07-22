@@ -183,6 +183,8 @@ class PracticeViewModel : ViewModel() {
             noteResults = collectedResults.toList(),
             noteMidiNumbers = state.sequence.notes.map { it.midiNumber },
             completed = completed,
+            beats = state.sequence.beats,
+            beatType = state.sequence.beatType,
         )
     }
 

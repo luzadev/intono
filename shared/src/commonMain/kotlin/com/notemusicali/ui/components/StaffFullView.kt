@@ -44,24 +44,12 @@ fun StaffFullView(
     BoxWithConstraints(modifier = modifier.fillMaxWidth()) {
         val availableWidthDp = maxWidth
         val noteAreaWidthDp = availableWidthDp - clefWidthDp - 8.dp
-        val notesPerLine = (noteAreaWidthDp / noteSpacingDp).toInt().coerceAtLeast(4)
+        // Capienza in peso: una unità di peso (semiminima) occupa ~noteSpacingDp
+        val capacityWeight = (noteAreaWidthDp / noteSpacingDp).coerceAtLeast(4f)
 
         val bars = StaffLayout.measurePositions(notes, beats, beatType)
-
-        // Righe: tetto notesPerLine; si chiude preferibilmente all'ultima stanghetta che ci sta
-        val lines = mutableListOf<IntRange>()
-        var lineStart = 0
-        while (lineStart < notes.size) {
-            val cap = (lineStart + notesPerLine - 1).coerceAtMost(notes.size - 1)
-            val lastBarInLine = bars.lastOrNull { it in lineStart..cap }
-            val lineEnd = when {
-                cap == notes.size - 1 -> cap
-                lastBarInLine != null && lastBarInLine > lineStart -> lastBarInLine
-                else -> cap
-            }
-            lines.add(lineStart..lineEnd)
-            lineStart = lineEnd + 1
-        }
+        val allGroups = StaffLayout.beamGroups(notes, beats, beatType)
+        val lines = StaffLayout.lineBreaks(notes, beats, beatType, capacityWeight)
         val lineCount = lines.size
         val totalHeightDp = systemHeightDp * lineCount + systemGapDp * (lineCount - 1).coerceAtLeast(0)
 
@@ -121,7 +109,12 @@ fun StaffFullView(
 
                 val lineNotes = notes.subList(r.first, r.last + 1)
                 val xs = StaffLayout.xPositions(lineNotes, cursor + 10f, size.width - cursor - 18f)
-                val groups = StaffLayout.beamGroups(lineNotes, beats, beatType)
+                // Travature globali (origine di beat corretta) clippate alla riga
+                val groups = allGroups.mapNotNull { g ->
+                    val from = maxOf(g.first, r.first)
+                    val to = minOf(g.last, r.last)
+                    if (to - from >= 1) (from - r.first)..(to - r.first) else null
+                }
                 val grouped = groups.flatMap { it }.toSet()
                 val currentInLine = currentIndex - r.first
 

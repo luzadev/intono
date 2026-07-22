@@ -120,6 +120,36 @@ object StaffLayout {
         return positions
     }
 
+    /**
+     * Spezza la sequenza in righe con capienza espressa in peso (sqrt della durata),
+     * chiudendo preferibilmente all'ultima stanghetta che entra nella riga.
+     */
+    fun lineBreaks(notes: List<MusicalNote>, beats: Int, beatType: Int, capacityWeight: Float): List<IntRange> {
+        if (notes.isEmpty()) return emptyList()
+        val weights = notes.map { kotlin.math.sqrt(quarterUnits(it.duration)).toFloat() }
+        val bars = measurePositions(notes, beats, beatType).toSet()
+        val lines = mutableListOf<IntRange>()
+        var start = 0
+        while (start < notes.size) {
+            var acc = 0f
+            var cap = start
+            while (cap < notes.size && (cap == start || acc + weights[cap] <= capacityWeight)) {
+                acc += weights[cap]
+                cap++
+            }
+            cap--
+            val lastBar = ((start + 1)..cap).lastOrNull { it in bars }
+            val end = when {
+                cap >= notes.size - 1 -> notes.size - 1
+                lastBar != null -> lastBar
+                else -> cap
+            }
+            lines.add(start..end)
+            start = end + 1
+        }
+        return lines
+    }
+
     /** Centri orizzontali proporzionali a sqrt(durata): la nota lunga respira. */
     fun xPositions(notes: List<MusicalNote>, areaStart: Float, areaWidth: Float): List<Float> {
         if (notes.isEmpty()) return emptyList()

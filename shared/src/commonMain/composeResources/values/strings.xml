@@ -38,7 +38,7 @@
     <string name="history_title">Cronologia</string>
     <string name="history_desc">Rivedi le sessioni di pratica passate</string>
     <string name="guide_title">Guida</string>
-    <string name="guide_desc">Come usare l\'app e suggerimenti</string>
+    <string name="guide_desc">Come usare l'app e suggerimenti</string>
 
     <!-- Navigation -->
     <string name="back">Indietro</string>
@@ -179,7 +179,7 @@
     <string name="no_recent_activity">Nessuna attivita recente</string>
 
     <!-- History -->
-    <string name="no_sessions">Nessuna sessione salvata.\nCompleta un\'attività per vederla qui.</string>
+    <string name="no_sessions">Nessuna sessione salvata.\nCompleta un'attività per vederla qui.</string>
     <string name="history_type_practice">Pratica</string>
     <string name="history_type_ear_training">Ear Training</string>
     <string name="history_type_challenge">Sfida</string>
@@ -205,23 +205,23 @@
     <!-- Guide -->
     <string name="guide_section_tips">Suggerimenti</string>
     <string name="guide_tuner_desc">Rileva in tempo reale la nota che stai suonando tramite il microfono. Mostra il nome della nota, la deviazione in cents e un indicatore visivo verde (intonato) o rosso (stonato). Ideale per strumenti a corda, a fiato o voce: verifica se stai suonando la nota giusta.</string>
-    <string name="guide_metronome_desc">Metronomo digitale con BPM regolabile da 30 a 240, tempi disponibili (2/4, 3/4, 4/4, 6/8), indicatori visivi dei battiti e funzione Tap Tempo. Premi il pulsante microfono per attivare il tuner integrato e verificare l\'intonazione mentre suoni a tempo.</string>
+    <string name="guide_metronome_desc">Metronomo digitale con BPM regolabile da 30 a 240, tempi disponibili (2/4, 3/4, 4/4, 6/8), indicatori visivi dei battiti e funzione Tap Tempo. Premi il pulsante microfono per attivare il tuner integrato e verificare l'intonazione mentre suoni a tempo.</string>
     <string name="guide_reference_desc">Genera una nota di riferimento per accordare o esercitarsi a orecchio. Pulsante rapido LA 440 Hz, griglia di 12 note cromatiche e ottava selezionabile da 2 a 7.</string>
-    <string name="guide_practice_desc">Il cuore dell\'app. Carica una sequenza di note (manuale, scansione foto o MusicXML) e suonale una per una. L\'app rileva la nota dal microfono e avanza automaticamente. Visualizza il pentagramma in modalita Nota, Contesto, Spartito o Chiaro. Usa \"Nascondi\" per esercitarti a leggere dal pentagramma. Metronomo integrato per suonare a tempo.</string>
+    <string name="guide_practice_desc">Il cuore dell'app. Carica una sequenza di note (manuale, scansione foto o MusicXML) e suonale una per una. L'app rileva la nota dal microfono e avanza automaticamente. Visualizza il pentagramma in modalita Nota, Contesto, Spartito o Chiaro. Usa "Nascondi" per esercitarti a leggere dal pentagramma. Metronomo integrato per suonare a tempo.</string>
     <string name="guide_exercises_desc">Esercizi pronti con difficolta progressiva: Livello 1 (note base Do-Sol), Livello 2 (scale complete), Livello 3 (scale con alterazioni e melodie), Livello 4 (arpeggi e salti).</string>
     <string name="guide_scales_desc">Genera scale e arpeggi in qualsiasi tonalita. Scale: Maggiore, Minore, Armonica, Melodica, Pentatonica, Cromatica. Arpeggi: Maggiore, Minore, Diminuito, Aumentato, Settima. Scegli nota fondamentale, ottava, tipo e direzione.</string>
     <string name="guide_scores_desc">Sfoglia la libreria di file MusicXML e pratica direttamente dai brani importati.</string>
-    <string name="guide_ear_training_desc">Allena l\'orecchio musicale: Riconosci Nota (indovina la nota ascoltata) e Riconosci Intervallo (identifica l\'intervallo tra due note). Tre livelli di difficolta con 10 domande per sessione.</string>
-    <string name="guide_challenge_desc">Metti alla prova velocita e precisione: scegli sorgente e tempo limite (30s, 1min, 2min) e suona il maggior numero di note corrette. Ogni nota e\' mostrata sul pentagramma. Sistema di punteggio con bonus precisione, velocita e moltiplicatore combo.</string>
+    <string name="guide_ear_training_desc">Allena l'orecchio musicale: Riconosci Nota (indovina la nota ascoltata) e Riconosci Intervallo (identifica l'intervallo tra due note). Tre livelli di difficolta con 10 domande per sessione.</string>
+    <string name="guide_challenge_desc">Metti alla prova velocita e precisione: scegli sorgente e tempo limite (30s, 1min, 2min) e suona il maggior numero di note corrette. Ogni nota e' mostrata sul pentagramma. Sistema di punteggio con bonus precisione, velocita e moltiplicatore combo.</string>
     <string name="guide_leaderboard_desc">I tuoi 20 migliori punteggi nelle sfide, con punteggio, note suonate, combo massima e data.</string>
     <string name="guide_stats_desc">Panoramica dei tuoi progressi: sessioni totali, tempo di pratica, miglior precisione. Grafici giornalieri di precisione, primo tentativo e tempo di reazione.</string>
     <string name="guide_goals_desc">Imposta un obiettivo (5, 10, 15 o 30 minuti al giorno), segui il progresso circolare, mantieni la serie consecutiva e visualizza il calendario degli ultimi 30 giorni. Il tempo viene conteggiato da tutte le attivita: pratica, sfide e ear training.</string>
-    <string name="guide_history_desc">Rivedi tutte le sessioni passate in un\'unica lista cronologica: pratica, ear training e sfide. Ogni tipo ha un badge colorato per distinguerlo. Tocca una sessione di pratica per rieseguirla.</string>
-    <string name="guide_tip_quiet">Ambiente silenzioso: l\'app funziona meglio con poco rumore di fondo.</string>
+    <string name="guide_history_desc">Rivedi tutte le sessioni passate in un'unica lista cronologica: pratica, ear training e sfide. Ogni tipo ha un badge colorato per distinguerlo. Tocca una sessione di pratica per rieseguirla.</string>
+    <string name="guide_tip_quiet">Ambiente silenzioso: l'app funziona meglio con poco rumore di fondo.</string>
     <string name="guide_tip_distance">Distanza dal microfono: tieni il dispositivo a 30-50 cm dallo strumento.</string>
     <string name="guide_tip_daily">Pratica quotidiana: anche 10 minuti al giorno fanno la differenza.</string>
-    <string name="guide_tip_scales">Inizia dalle scale: padroneggiare le scale e\' la base per suonare qualsiasi brano.</string>
-    <string name="guide_tip_ear">Ear training regolare: anche 5 minuti al giorno migliorano l\'orecchio musicale.</string>
+    <string name="guide_tip_scales">Inizia dalle scale: padroneggiare le scale e' la base per suonare qualsiasi brano.</string>
+    <string name="guide_tip_ear">Ear training regolare: anche 5 minuti al giorno migliorano l'orecchio musicale.</string>
     <string name="guide_section_support">Supporto</string>
     <string name="guide_support_desc">Hai bisogno di aiuto, vuoi segnalare un problema o suggerire un miglioramento? Scrivici!</string>
     <string name="guide_support_button">Contattaci via email</string>

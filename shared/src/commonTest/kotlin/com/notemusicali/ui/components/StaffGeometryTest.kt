@@ -120,4 +120,39 @@ class StaffGeometryTest {
         val xs = StaffLayout.xPositions(listOf(n(NoteDuration.QUARTER)), 10f, 100f)
         assertEquals(60f, xs.single(), absoluteTolerance = 0.5f)
     }
+
+    @Test
+    fun `line breaks prefer the last barline that fits the weight capacity`() {
+        // 8 semiminime in 4/4 (peso 1 ciascuna), capienza 5: la riga chiude alla stanghetta (indice 3)
+        val notes = List(8) { n(NoteDuration.QUARTER) }
+        assertEquals(listOf(0..3, 4..7), StaffLayout.lineBreaks(notes, 4, 4, capacityWeight = 5f))
+    }
+
+    @Test
+    fun `weight capacity lets short notes pack more per line`() {
+        // 16 semicrome (peso ~0.5): con capienza 4 ne entrano 8 per riga, non 4
+        val notes = List(16) { n(NoteDuration.SIXTEENTH) }
+        val lines = StaffLayout.lineBreaks(notes, 4, 4, capacityWeight = 4f)
+        assertEquals(2, lines.size)
+        assertEquals(0..7, lines[0])
+    }
+
+    @Test
+    fun `measure wider than the line is force split`() {
+        // 5 semiminime in 4/4 con capienza 2: nessuna stanghetta entra nella prima riga
+        val notes = List(5) { n(NoteDuration.QUARTER) }
+        assertEquals(listOf(0..1, 2..3, 4..4), StaffLayout.lineBreaks(notes, 4, 4, capacityWeight = 2f))
+    }
+
+    @Test
+    fun `line breaks cover every note exactly once`() {
+        val notes = List(11) { n(if (it % 3 == 0) NoteDuration.HALF else NoteDuration.EIGHTH) }
+        val lines = StaffLayout.lineBreaks(notes, 3, 4, capacityWeight = 3f)
+        assertEquals((0..10).toList(), lines.flatMap { it.toList() })
+    }
+
+    @Test
+    fun `empty sequence has no lines`() {
+        assertEquals(emptyList(), StaffLayout.lineBreaks(emptyList(), 4, 4, capacityWeight = 5f))
+    }
 }

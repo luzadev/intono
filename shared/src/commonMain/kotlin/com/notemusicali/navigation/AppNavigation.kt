@@ -235,6 +235,8 @@ fun AppNavigation() {
                     currentSequence = NoteSequence(
                         name = session.sequenceName,
                         notes = notes,
+                        beats = session.beats,
+                        beatType = session.beatType,
                     )
                     currentInstrument = InstrumentPreset.entries.firstOrNull {
                         it.displayName == session.instrumentName

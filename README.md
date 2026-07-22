@@ -1,100 +1,75 @@
-# NoteMusicali
+# InTono 🎻
 
-App multipiattaforma per l'apprendimento musicale, costruita con **Kotlin Multiplatform** e **Compose Multiplatform**.
+[![Build](https://github.com/luzadev/intono/actions/workflows/build.yml/badge.svg)](https://github.com/luzadev/intono/actions/workflows/build.yml)
+[![Release](https://img.shields.io/github/v/release/luzadev/intono)](https://github.com/luzadev/intono/releases/latest)
 
-## Funzionalita
+**Intonazione e pratica per musicisti di ogni livello.** App multipiattaforma per l'apprendimento musicale costruita con **Kotlin Multiplatform** e **Compose Multiplatform**: rileva in tempo reale la nota che suoni (algoritmo YIN) e ti guida nella pratica su un pentagramma con notazione professionale.
 
-- **Controllo Intonazione** — rileva in tempo reale la nota suonata tramite microfono (algoritmo YIN)
-- **Metronomo** — BPM regolabile, time signature, tap tempo e tuner integrato per suonare a tempo verificando l'intonazione
-- **Nota di Riferimento** — genera qualsiasi nota cromatica con frequenza esatta per accordatura
-- **Pratica guidata** — segui sequenze di note con feedback visivo e sonoro, metronomo integrato, modalita "Nascondi" per lettura dal pentagramma
-- **Sfida** — suona il maggior numero di note nel tempo con punteggio, combo e pentagramma
-- **Ear Training** — riconoscimento di note e intervalli con difficolta progressiva
-- **Esercizi predefiniti** — scale, arpeggi e sequenze ordinate per difficolta
-- **Inserimento manuale** — componi sequenze personalizzate con notazione italiana e durate musicali
-- **Scansione spartiti** — riconosci note da foto di spartiti tramite AI (OpenAI / Gemini)
-- **Pentagramma interattivo** — visualizzazione grafica delle note sul rigo musicale
-- **Obiettivi giornalieri** — traccia il tempo di pratica da tutte le attivita con serie consecutiva e calendario
-- **Cronologia unificata** — tutte le sessioni (pratica, ear training, sfide) in un'unica lista
+| | |
+|---|---|
+| ![Home](docs/screenshots/home.png) | ![Esercizi](docs/screenshots/exercises.png) |
+| ![Pratica — vista spartito](docs/screenshots/practice.png) | ![Metronomo](docs/screenshots/metronome.png) |
 
-## Piattaforme supportate
+## Funzionalità
 
-| Piattaforma | Stato | Note |
-|-------------|-------|------|
-| Android     | Funzionante | Richiede API 26+ (Android 8.0) |
-| iOS         | Funzionante | Richiede iOS 16+, audio via AVAudioEngine |
-| macOS       | Funzionante | Desktop app via Compose Desktop |
+- **Controllo intonazione** — rilevamento in tempo reale della nota al microfono (YIN, preset per violino, viola, violoncello, pianoforte, chitarra e voce) con deviazione in cents
+- **Pratica guidata** — segui sequenze di note con avanzamento automatico; pentagramma in modalità Nota / Contesto / Spartito, tema chiaro e modalità "Nascondi" per la lettura
+- **Pentagramma professionale** — glifi tipografici disegnati su Canvas, travature per crome e semicrome (anche in 6/8), stanghette di battuta con indicazione del tempo, diesis **e bemolle**, spaziatura proporzionale alla durata
+- **Spartiti** — 12 brani celebri inclusi (Bach, Beethoven, Chopin, Pachelbel…), import MusicXML/MXL e scansione di spartiti da foto tramite AI (Claude / GPT-4o)
+- **Metronomo** — 30–240 BPM su griglia temporale assoluta (niente drift), tempi 2/4–6/8, tap tempo e accordatore integrato
+- **Ear training** — riconoscimento di note e intervalli con difficoltà progressiva
+- **Sfida** — quante note corrette riesci a suonare nel tempo limite? Punteggio con bonus precisione/velocità e combo
+- **Progressi** — obiettivi giornalieri con streak, statistiche con grafici e cronologia unificata ri-eseguibile
 
-## Struttura progetto
+## Piattaforme
+
+| Piattaforma | Stato | Requisiti |
+|-------------|-------|-----------|
+| Android     | ✅ | API 26+ (Android 8.0) |
+| iOS         | ✅ | iOS 16+, Xcode 15+ |
+| macOS/Desktop | ✅ | JVM 17+ (Compose Desktop) |
+
+## Download
+
+L'APK Android firmato è allegato a ogni [release](https://github.com/luzadev/intono/releases/latest). Gli APK di sviluppo sono disponibili come artifact di ogni [build CI](https://github.com/luzadev/intono/actions/workflows/build.yml).
+
+## Architettura
 
 ```
 NoteMusicali/
-  app/              # Android app module
-  shared/           # Kotlin Multiplatform shared code
-    commonMain/     #   Logica condivisa (UI, audio, pitch detection)
-    androidMain/    #   Implementazioni Android (AudioRecord)
-    iosMain/        #   Implementazioni iOS (AVAudioEngine)
-    desktopMain/    #   Implementazioni Desktop (javax.sound)
-  iosApp/           # Xcode project (SwiftUI entry point)
-  desktopApp/       # Desktop app module (JVM)
+  app/              # Entry point Android
+  desktopApp/       # Entry point Desktop (JVM)
+  iosApp/           # Entry point iOS (SwiftUI + XcodeGen)
+  shared/           # Kotlin Multiplatform
+    commonMain/     #   UI Compose, DSP (YIN), notazione, parser MusicXML,
+                    #   geometria e rendering del pentagramma, motori di gioco
+    androidMain/    #   AudioRecord, CameraX, EncryptedSharedPreferences, SAF
+    iosMain/        #   AVAudioEngine, UIImagePickerController, Keychain, zlib
+    desktopMain/    #   javax.sound, Swing file picker
 ```
 
-## Prerequisiti
-
-- **JDK 17+**
-- **Android Studio** (per Android)
-- **Xcode 15+** (per iOS)
-- **XcodeGen** (per generare il progetto iOS): `brew install xcodegen`
+Tutta la logica (pitch detection, notazione, layout del pentagramma, motori di pratica/sfida) vive in `commonMain` ed è coperta da test (`commonTest`, ~110 test eseguiti su JVM e simulatore iOS). Le piattaforme forniscono solo I/O: audio, camera, storage sicuro, file system.
 
 ## Build
 
-### Android
-
 ```bash
-./gradlew :app:assembleDebug
+# Test
+./gradlew :shared:desktopTest              # suite su JVM
+./gradlew :shared:iosSimulatorArm64Test    # suite su simulatore iOS
+
+# Android
+./gradlew :app:assembleDebug               # APK in app/build/outputs/apk/debug/
+
+# Desktop
+./gradlew :desktopApp:run                  # esegui
+./gradlew :desktopApp:packageDmg           # DMG per macOS
+
+# iOS
+cd iosApp && xcodegen generate && open iosApp.xcodeproj
 ```
 
-L'APK si trova in `app/build/outputs/apk/debug/`.
+Per l'APK di release firmato servono le variabili d'ambiente `INTONO_KEYSTORE_PATH`, `INTONO_KEYSTORE_PASSWORD`, `INTONO_KEY_ALIAS`, `INTONO_KEY_PASSWORD` (in CI arrivano dai secrets della repo: il workflow [Release](.github/workflows/release.yml) parte a ogni tag `v*`).
 
-### iOS
+## Stack
 
-```bash
-# Genera il progetto Xcode
-cd iosApp && xcodegen generate
-
-# Compila il framework Kotlin
-./gradlew :shared:compileKotlinIosArm64
-
-# Apri in Xcode, seleziona il device e Build & Run
-open iosApp/iosApp.xcodeproj
-```
-
-Il pre-build script in Xcode esegue automaticamente `embedAndSignAppleFrameworkForXcode`.
-
-### macOS (Desktop)
-
-```bash
-./gradlew :desktopApp:run                    # Esegui
-./gradlew :desktopApp:packageDmg             # Genera DMG
-```
-
-## Strumenti presets
-
-L'app supporta preset ottimizzati per diversi strumenti:
-
-| Strumento   | Range       | Buffer |
-|-------------|-------------|--------|
-| Violino     | G3 - E7     | 2048   |
-| Viola       | C3 - A6     | 2048   |
-| Violoncello | C2 - C6     | 4096   |
-| Pianoforte  | A0 - C8     | 4096   |
-| Chitarra    | E2 - E6     | 2048   |
-| Voce        | D2 - D6     | 2048   |
-
-## Stack tecnologico
-
-- **Kotlin 2.1** + **Compose Multiplatform 1.7**
-- **Ktor** per le chiamate API (scansione spartiti)
-- **multiplatform-settings** per preferenze persistenti
-- **YIN algorithm** per pitch detection in tempo reale
-- **AVAudioEngine** (iOS) / **AudioRecord** (Android) / **javax.sound** (Desktop)
+Kotlin 2.1 · Compose Multiplatform 1.7 · Ktor 3 · kotlinx-serialization · multiplatform-settings · CameraX · AVAudioEngine / AudioRecord / javax.sound
