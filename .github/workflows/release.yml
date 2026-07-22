@@ -51,3 +51,34 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh release create "$GITHUB_REF_NAME" "InTono-${GITHUB_REF_NAME}.apk" --title "InTono $GITHUB_REF_NAME" --generate-notes
+
+  desktop-dmg:
+    runs-on: macos-latest
+    needs: release
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle (with cache)
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build DMG
+        env:
+          INTONO_VERSION: ${{ github.ref_name }}
+        run: |
+          export INTONO_VERSION="${INTONO_VERSION#v}"
+          ./gradlew :desktopApp:packageDmg
+
+      - name: Attach DMG to GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          DMG=$(find desktopApp/build/compose/binaries -name "*.dmg" | head -1)
+          cp "$DMG" "InTono-${GITHUB_REF_NAME}-macos.dmg"
+          gh release upload "$GITHUB_REF_NAME" "InTono-${GITHUB_REF_NAME}-macos.dmg"

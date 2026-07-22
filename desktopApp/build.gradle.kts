@@ -37,7 +37,8 @@ compose.desktop {
                 org.jetbrains.compose.desktop.application.dsl.TargetFormat.Deb,
             )
             packageName = "InTono"
-            packageVersion = "1.0.0"
+            // In CI la versione arriva dal tag (release.yml); localmente resta il default
+            packageVersion = System.getenv("INTONO_VERSION") ?: "1.0.0"
 
             macOS {
                 infoPlist {
