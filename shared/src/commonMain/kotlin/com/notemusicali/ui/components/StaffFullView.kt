@@ -70,9 +70,13 @@ fun StaffFullView(
         }
 
         // Con un vincolo di altezza dal contenitore (es. weight in Pratica) il
-        // viewport si adatta alla finestra; altrimenti vale il tetto di default
+        // viewport si adatta alla finestra; altrimenti vale il tetto di default.
+        // L'altezza si aggancia a righi interi per non tagliare un rigo a metà.
         val heightBound = if (this.maxHeight != Dp.Infinity) this.maxHeight else maxVisibleHeight
-        val viewportHeightDp = if (totalHeightDp < heightBound) totalHeightDp else heightBound
+        val stride = systemHeightDp + systemGapDp
+        val wholeSystems = ((heightBound + systemGapDp) / stride).toInt().coerceAtLeast(1)
+        val snappedBound = stride * wholeSystems - systemGapDp
+        val viewportHeightDp = if (totalHeightDp < snappedBound) totalHeightDp else snappedBound
         Box(
             modifier = Modifier
                 .fillMaxWidth()

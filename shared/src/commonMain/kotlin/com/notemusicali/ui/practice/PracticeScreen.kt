@@ -274,7 +274,11 @@ fun PracticeScreen(
                     )
                 }
 
-                Spacer(modifier = Modifier.weight(1f))
+                if (currentMode == StaffMode.FULL) {
+                    Spacer(modifier = Modifier.height(8.dp))
+                } else {
+                    Spacer(modifier = Modifier.weight(1f))
+                }
 
                 // Staff display based on mode
                 val staffBgMod = if (lightStaff) {
@@ -390,7 +394,11 @@ fun PracticeScreen(
                     }
                 }
 
-                Spacer(modifier = Modifier.weight(1f))
+                if (currentMode == StaffMode.FULL) {
+                    Spacer(modifier = Modifier.height(8.dp))
+                } else {
+                    Spacer(modifier = Modifier.weight(1f))
+                }
             }
         }
         }
