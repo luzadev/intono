@@ -69,7 +69,10 @@ fun StaffFullView(
             scrollState.animateScrollTo(targetY)
         }
 
-        val viewportHeightDp = if (totalHeightDp < maxVisibleHeight) totalHeightDp else maxVisibleHeight
+        // Con un vincolo di altezza dal contenitore (es. weight in Pratica) il
+        // viewport si adatta alla finestra; altrimenti vale il tetto di default
+        val heightBound = if (this.maxHeight != Dp.Infinity) this.maxHeight else maxVisibleHeight
+        val viewportHeightDp = if (totalHeightDp < heightBound) totalHeightDp else heightBound
         Box(
             modifier = Modifier
                 .fillMaxWidth()

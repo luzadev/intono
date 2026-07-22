@@ -310,7 +310,8 @@ fun PracticeScreen(
                         StaffFullView(
                             notes = state.sequence.notes,
                             currentIndex = state.currentIndex,
-                            modifier = staffBgMod,
+                            // Lo spartito si prende lo spazio residuo: cresce con la finestra
+                            modifier = Modifier.weight(1f, fill = false).then(staffBgMod),
                             lightTheme = lightStaff,
                             beats = state.sequence.beats,
                             beatType = state.sequence.beatType,
