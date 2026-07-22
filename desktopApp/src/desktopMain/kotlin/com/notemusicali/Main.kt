@@ -15,7 +15,7 @@ fun main() = application {
     Window(
         onCloseRequest = ::exitApplication,
         title = "InTono",
-        state = rememberWindowState(width = 1024.dp, height = 768.dp),
+        state = rememberWindowState(width = 1024.dp, height = 1068.dp),
     ) {
         NoteMusicaliTheme {
             Surface(

@@ -32,7 +32,7 @@ fun StaffFullView(
     beats: Int = 4,
     beatType: Int = 4,
     // Altezza massima visibile: oltre, lo spartito scorre da solo seguendo la nota corrente
-    maxVisibleHeight: Dp = 340.dp,
+    maxVisibleHeight: Dp = 640.dp,
 ) {
     if (notes.isEmpty()) return
 
