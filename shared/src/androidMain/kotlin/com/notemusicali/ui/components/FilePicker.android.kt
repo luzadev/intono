@@ -10,7 +10,7 @@ import com.notemusicali.scores.extractMusicXmlFromBytes
 @Composable
 actual fun rememberFilePickerLauncher(
     mimeTypes: List<String>,
-    onFileContent: (String) -> Unit,
+    onFileContent: (fileName: String, content: String) -> Unit,
 ): () -> Unit {
     val context = LocalContext.current
     val launcher = rememberLauncherForActivityResult(
@@ -22,7 +22,7 @@ actual fun rememberFilePickerLauncher(
                     val bytes = stream.readBytes()
                     val content = extractMusicXmlFromBytes(bytes)
                     if (content != null) {
-                        onFileContent(content)
+                        onFileContent(displayNameOf(context, it), content)
                     }
                 }
             } catch (_: Exception) {
@@ -32,4 +32,15 @@ actual fun rememberFilePickerLauncher(
     }
 
     return { launcher.launch(mimeTypes.toTypedArray()) }
+}
+
+private fun displayNameOf(context: android.content.Context, uri: Uri): String {
+    return try {
+        context.contentResolver.query(uri, null, null, null, null)?.use { cursor ->
+            val idx = cursor.getColumnIndex(android.provider.OpenableColumns.DISPLAY_NAME)
+            if (idx >= 0 && cursor.moveToFirst()) cursor.getString(idx) else null
+        } ?: (uri.lastPathSegment ?: "Import")
+    } catch (_: Exception) {
+        uri.lastPathSegment ?: "Import"
+    }
 }

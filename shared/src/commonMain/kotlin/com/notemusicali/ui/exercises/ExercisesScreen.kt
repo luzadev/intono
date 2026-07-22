@@ -27,8 +27,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.material.icons.outlined.Delete
+import androidx.compose.material3.IconButton
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import com.notemusicali.exercises.Exercise
 import com.notemusicali.exercises.ExerciseRepository
+import com.notemusicali.exercises.ImportedExercise
+import com.notemusicali.exercises.ImportedExerciseRepository
 import notemusicali.shared.generated.resources.Res
 import notemusicali.shared.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
@@ -46,6 +54,8 @@ fun ExercisesScreen(
     onBack: () -> Unit,
     onExerciseSelected: (NoteSequence) -> Unit,
 ) {
+    var imported by remember { mutableStateOf(ImportedExerciseRepository.getAll()) }
+
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.TopCenter,
@@ -69,6 +79,28 @@ fun ExercisesScreen(
                     exercise = exercise,
                     onClick = { onExerciseSelected(exercise.sequence) },
                 )
+            }
+
+            if (imported.isNotEmpty()) {
+                item {
+                    Text(
+                        text = stringResource(Res.string.imported_exercises),
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        color = Color.White.copy(alpha = 0.5f),
+                        modifier = Modifier.padding(top = 8.dp),
+                    )
+                }
+                items(imported, key = { it.id }) { entry ->
+                    ImportedExerciseCard(
+                        entry = entry,
+                        onClick = { onExerciseSelected(entry.toNoteSequence()) },
+                        onDelete = {
+                            ImportedExerciseRepository.remove(entry.id)
+                            imported = ImportedExerciseRepository.getAll()
+                        },
+                    )
+                }
             }
         }
     }
@@ -131,5 +163,51 @@ private fun StarRating(level: Int) {
                 tint = if (index < level) StarGold else Color.White.copy(alpha = 0.3f),
             )
         }
+    }
+}
+
+@Composable
+private fun ImportedExerciseCard(
+    entry: ImportedExercise,
+    onClick: () -> Unit,
+    onDelete: () -> Unit,
+) {
+    GradientCard(
+        gradient = CardGradients.scoreFile,
+        onClick = onClick,
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(
+                text = entry.title,
+                fontSize = 20.sp,
+                fontWeight = FontWeight.SemiBold,
+                color = Color.White,
+                modifier = Modifier.weight(1f),
+            )
+            IconButton(onClick = onDelete) {
+                Icon(
+                    imageVector = Icons.Outlined.Delete,
+                    contentDescription = stringResource(Res.string.delete_imported),
+                    tint = Color.White.copy(alpha = 0.6f),
+                )
+            }
+        }
+        Spacer(modifier = Modifier.height(4.dp))
+        StaffPreview(
+            notes = entry.toNoteSequence().notes,
+            beats = entry.beats,
+            beatType = entry.beatType,
+        )
+        Spacer(modifier = Modifier.height(4.dp))
+        Text(
+            text = stringResource(Res.string.n_notes, entry.notes.size),
+            fontSize = 12.sp,
+            color = Color.White.copy(alpha = 0.5f),
+        )
     }
 }

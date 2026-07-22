@@ -22,14 +22,14 @@ private var retainedFileDelegate: FilePickerDelegate? = null
 @Composable
 actual fun rememberFilePickerLauncher(
     mimeTypes: List<String>,
-    onFileContent: (String) -> Unit,
+    onFileContent: (fileName: String, content: String) -> Unit,
 ): () -> Unit {
     return {
         presentFilePicker(onFileContent)
     }
 }
 
-private fun presentFilePicker(onFileContent: (String) -> Unit) {
+private fun presentFilePicker(onFileContent: (fileName: String, content: String) -> Unit) {
     @Suppress("DEPRECATION")
     val rootVC = UIApplication.sharedApplication.keyWindow?.rootViewController ?: return
     val topVC = topPresentedViewController(rootVC)
@@ -56,7 +56,7 @@ private fun topPresentedViewController(vc: UIViewController): UIViewController {
 }
 
 private class FilePickerDelegate(
-    private val onFileContent: (String) -> Unit,
+    private val onFileContent: (fileName: String, content: String) -> Unit,
 ) : NSObject(), UIDocumentPickerDelegateProtocol {
 
     @OptIn(ExperimentalForeignApi::class)
@@ -71,7 +71,7 @@ private class FilePickerDelegate(
             val data = NSData.dataWithContentsOfURL(url) ?: return
             val bytes = data.toByteArray()
             val content = extractMusicXmlFromBytes(bytes) ?: return
-            onFileContent(content)
+            onFileContent(url.lastPathComponent ?: "Import", content)
         } finally {
             if (accessing) url.stopAccessingSecurityScopedResource()
         }

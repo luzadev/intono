@@ -28,6 +28,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.notemusicali.exercises.ImportedExerciseRepository
 import com.notemusicali.music.MusicXmlParser
 import com.notemusicali.music.NoteSequence
 import com.notemusicali.ui.components.BackTopBar
@@ -47,10 +48,17 @@ fun PracticeSetupScreen(
 ) {
     val filePickerLauncher = rememberFilePickerLauncher(
         mimeTypes = listOf("text/xml", "application/xml", "*/*"),
-        onFileContent = { content ->
+        onFileContent = { fileName, content ->
             try {
-                val sequence = MusicXmlParser.parse(content, "MusicXML Import")
+                val title = fileName
+                    .removeSuffix(".musicxml").removeSuffix(".music.xml")
+                    .removeSuffix(".xml").removeSuffix(".mxl")
+                    .replace('_', ' ')
+                    .ifBlank { "MusicXML Import" }
+                val sequence = MusicXmlParser.parse(content, title)
                 if (sequence.notes.isNotEmpty()) {
+                    // Lo spartito importato resta disponibile tra gli esercizi
+                    ImportedExerciseRepository.add(title, sequence)
                     onMusicXmlLoaded(sequence)
                 }
             } catch (_: Exception) {

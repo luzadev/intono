@@ -234,4 +234,6 @@
     <string name="info_website">djluza.com</string>
     <string name="info_privacy_policy">Privacy Policy</string>
     <string name="info_privacy_url">https://djluza.com/intono/privacy</string>
+    <string name="imported_exercises">Imported</string>
+    <string name="delete_imported">Delete imported score</string>
 </resources>

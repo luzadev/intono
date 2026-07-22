@@ -18,6 +18,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.notemusicali.scan.PlatformImage
 import kotlinx.coroutines.Dispatchers
+import java.awt.KeyboardFocusManager
+import kotlinx.coroutines.swing.Swing
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.imageio.ImageIO
@@ -45,9 +47,17 @@ actual fun CameraCapture(
             )
             Button(
                 onClick = {
-                    scope.launch(Dispatchers.Default) {
-                        val image = pickImageFile() ?: return@launch
-                        withContext(Dispatchers.Main) { onImageCaptured(image) }
+                    // Dialogo sull'EDT (Swing), decodifica dell'immagine su Default
+                    scope.launch(Dispatchers.Swing) {
+                        val file = pickImageFile() ?: return@launch
+                        val image = withContext(Dispatchers.Default) {
+                            try {
+                                ImageIO.read(file)
+                            } catch (_: Exception) {
+                                null
+                            }
+                        } ?: return@launch
+                        onImageCaptured(image)
                     }
                 },
                 colors = ButtonDefaults.buttonColors(
@@ -61,16 +71,13 @@ actual fun CameraCapture(
     }
 }
 
-private fun pickImageFile(): PlatformImage? {
+private fun pickImageFile(): java.io.File? {
     val chooser = JFileChooser().apply {
         dialogTitle = "Scegli l'immagine dello spartito"
         fileFilter = FileNameExtensionFilter("Immagini (PNG, JPEG)", "png", "jpg", "jpeg")
         isMultiSelectionEnabled = false
     }
-    if (chooser.showOpenDialog(null) != JFileChooser.APPROVE_OPTION) return null
-    return try {
-        ImageIO.read(chooser.selectedFile)
-    } catch (_: Exception) {
-        null
-    }
+    val parent = KeyboardFocusManager.getCurrentKeyboardFocusManager().activeWindow
+    if (chooser.showOpenDialog(parent) != JFileChooser.APPROVE_OPTION) return null
+    return chooser.selectedFile
 }
